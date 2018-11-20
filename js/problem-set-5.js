@@ -26,7 +26,12 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
+  height = prompt("Enter Height")
+  if (height>=1 && height<=23) {
+
+  } else {
+    prompt("Enter Height Between 1-23")
+  }
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -189,6 +194,11 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+  windspeed = prompt("Enter Hurricane Windspeed")
+  if (windspeed>=39 && windspeed<=73){
+    document.getElementById("hurricane-output").innerHTML = ("Tropical Storm")
+  }
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
