@@ -26,9 +26,9 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  height = prompt("Enter Height")
+  height = prompt("Enter Height Between 1-23")
   if (height>=1 && height<=23) {
-
+    document.getElementById("mario-easy-output").innerHTML = ("#")
   } else {
     prompt("Enter Height Between 1-23")
   }
@@ -198,6 +198,18 @@ function hurricane() {
   windspeed = prompt("Enter Hurricane Windspeed")
   if (windspeed>=39 && windspeed<=73){
     document.getElementById("hurricane-output").innerHTML = ("Tropical Storm")
+  } else if (windspeed>=74 && windspeed<=95){
+    document.getElementById("hurricane-output").innerHTML = ("Category 1 Hurricane.")
+  } else if (windspeed>=96 && windspeed<=110){
+    document.getElementById("hurricane-output").innerHTML = ("Category 2 Hurricane.")
+  } else if (windspeed>=111 && windspeed<=129){
+    document.getElementById("hurricane-output").innerHTML = ("Category 3 Hurricane.")
+  } else if (windspeed>=130 && windspeed<=156){
+    document.getElementById("hurricane-output").innerHTML = ("Category 4 Hurricane.")
+  } else if (windspeed>=157){
+    document.getElementById("hurricane-output").innerHTML = ("Category 5 Hurricane.")
+  } else {
+    prompt("Enter Hurricane Windspeed")
   }
 
   ///////////////////////////////// DO NOT MODIFY
