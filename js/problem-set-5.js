@@ -164,7 +164,30 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let sumOdd = 0;
+  let sumEven = 0;
+  while (true) {
+    card = prompt("Enter Credit Card Number")
+    if ((card.length === 13 || card.length === 15 || card.length === 16) && Number.isInteger(Number(card))) {
+      break;
+    }
+  }
+    for (let i = card.length - 2; i >= 0; i-=2)
+
+    for (let k = card.length - 1; k >= 0; i-=1)
+
+    if (card.length === 13 || card.length === 16) {
+      document.getElementById("credit-output").innerHTML = "img src ='./images/visa.png'/>"
+    }
+    else if (card.length === 15) {
+      document.getElementById("credit-output").innerHTML = "img src ='./images/amex.png'/>"
+    }
+    else if (card.length === 16) {
+      document.getElementById("credit-output").innerHTML = "img src ='./images/mastercard.png'/>"
+    }
+    else {
+    document.getElementById("credit-output").innerHTML = "img src ='./images/invalid.png'/>"
+  }
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
