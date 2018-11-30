@@ -26,7 +26,30 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
+  let hash = '#';
+  let space = '&nbsp;';
+  let lines = '';
+
+  while (!Number.isInteger(height) || (height < 1 || height > 23)) {
+    height = prompt("Enter Height Between 1-23");
+
+    if (height != null) {
+      height = Number(height);
+    } else {
+      height = -1;
+    }
+  }
+
+  for (let a = 0; a < height; a++) {
+    for (let b = 0; b <= (height - 2 - a); b++) {
+      lines = lines + space;
+    }
+    for (let c = 0; c <= (1 + a); c++) {
+      lines = lines + hash;
+    }
+    lines = lines + "<br>";
+  }
+  document.getElementById("mario-easy-output").innerHTML = "<code>" + lines + "</code>";
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -61,7 +84,30 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  let hash = '##';
+  let space = '&nbsp;';
+  let lines = '';
+
+  while (!Number.isInteger(height) || (height < 1 || height > 23)) {
+    height = prompt("Enter Height Between 1-23");
+
+    if (height != null) {
+      height = Number(height);
+    } else {
+      height = -1;
+    }
+  }
+
+  for (let a = 0; a < height; a++) {
+    for (let b = 0; b <= (height - 2 - a); b++) {
+      lines = lines + space;
+    }
+    for (let c = 0; c <= (1 + a); c++) {
+      lines = lines + hash;
+    }
+    lines = lines + "<br>";
+  }
+  document.getElementById("mario-hard-output").innerHTML = "<code>" + lines + "</code>";
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -189,6 +235,25 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+  windspeed = Number(prompt("Enter Hurricane Windspeed"));
+  if (windspeed>=0 && windspeed<=38){
+    document.getElementById("hurricane-output").innerHTML = ("The skies are calm...")
+  } else if (windspeed>=39 && windspeed<=73){
+    document.getElementById("hurricane-output").innerHTML = ("Tropical Storm.")
+  } else if (windspeed>=74 && windspeed<=95){
+    document.getElementById("hurricane-output").innerHTML = ("Category 1 Hurricane.")
+  } else if (windspeed>=96 && windspeed<=110){
+    document.getElementById("hurricane-output").innerHTML = ("Category 2 Hurricane.")
+  } else if (windspeed>=111 && windspeed<=129){
+    document.getElementById("hurricane-output").innerHTML = ("Category 3 Hurricane.")
+  } else if (windspeed>=130 && windspeed<=156){
+    document.getElementById("hurricane-output").innerHTML = ("Category 4 Hurricane.")
+  } else if (windspeed>=157){
+    document.getElementById("hurricane-output").innerHTML = ("Category 5 Hurricane.")
+  } else {
+    Number(prompt("Enter Hurricane Windspeed"));
+  }
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
