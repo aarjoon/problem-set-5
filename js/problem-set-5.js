@@ -203,7 +203,7 @@ function credit() {
 
 function guess() {
 
-  let attempts= 0;
+  let attempts = 0;
   let randomNumber = Math.floor(Math.random(1)*1000);
   let guessedNumber = false
   let userGuessNumber;
