@@ -47,7 +47,7 @@ function mario() {
     for (let c = 0; c <= (1 + a); c++) {
       lines = lines + hash;
     }
-    lines = lines + "<br>"
+    lines = lines + "<br>";
   }
   document.getElementById("mario-easy-output").innerHTML = "<code>" + lines + "</code>";
 
@@ -84,7 +84,7 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  let hash = '##';
+  let hash = '#';
   let space = '&nbsp;';
   let lines = '';
 
@@ -103,6 +103,10 @@ function marioAgain() {
       lines = lines + space;
     }
     for (let c = 0; c <= (1 + a); c++) {
+      lines = lines + hash;
+    }
+      lines = lines + space + space;
+    for (let d = 0; d <= (1 + a); d++) {
       lines = lines + hash;
     }
     lines = lines + "<br>";
@@ -199,7 +203,38 @@ function credit() {
 
 function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  let attempts= 0;
+  let randomNumber = Math.floor(Math.random(1)*1000);
+  let guessedNumber = false
+  let userGuessNumber;
+
+  while(guessedNumber == false) {
+     userGuessNumber = Number(prompt("Input Your Guess For An Integer Between 1 And 1000"));
+    if (userGuessNumber <= 1000 && userGuessNumber >= 1 && Number.isInteger(userGuessNumber)) {
+      console.log(randomNumber)
+      if(userGuessNumber > randomNumber) {
+        alert("This attempt was too high!")
+        attempts+=1;
+      }
+      else if(userGuessNumber < randomNumber) {
+        alert("This attempt was too low!")
+        attempts+=1;
+      }
+      else if(userGuessNumber == randomNumber) {
+        alert("Correct!")
+        attempts+=1;
+        found = true;
+
+        document.getElementById("guess-output").innerHTML = "Number: " + randomNumber + "<br/>Attempts: " + attempts;
+        break;
+      }
+    }
+    else {
+      continue;
+    }
+
+  }
+
 
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
