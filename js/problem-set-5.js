@@ -47,7 +47,7 @@ function mario() {
     for (let c = 0; c <= (1 + a); c++) {
       lines = lines + hash;
     }
-    lines = lines + "<br>";
+    lines = lines + "<br>"
   }
   document.getElementById("mario-easy-output").innerHTML = "<code>" + lines + "</code>";
 
