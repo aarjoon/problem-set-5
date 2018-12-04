@@ -167,27 +167,51 @@ function credit() {
   let sumOdd = 0;
   let sumEven = 0;
   while (true) {
-    card = prompt("Enter Credit Card Number")
-    if ((card.length === 13 || card.length === 15 || card.length === 16) && Number.isInteger(Number(card))) {
-      break;
-    }
+    card = prompt("Enter your credit card number: ");
+    if (Number.isInteger(Number(card))){
+    break;
   }
-    for (let i = card.length - 2; i >= 0; i-=2)
-
-    for (let k = card.length - 1; k >= 0; i-=1)
-
-    if (card.length === 13 || card.length === 16) {
-      document.getElementById("credit-output").innerHTML = "img src ='./images/visa.png'/>"
-    }
-    else if (card.length === 15) {
-      document.getElementById("credit-output").innerHTML = "img src ='./images/amex.png'/>"
-    }
-    else if (card.length === 16) {
-      document.getElementById("credit-output").innerHTML = "img src ='./images/mastercard.png'/>"
-    }
-    else {
-    document.getElementById("credit-output").innerHTML = "img src ='./images/invalid.png'/>"
+  if (card === null) {
+    break;
   }
+}
+
+if (card !== null) {
+  for (let i = card.length-2; i >= 0; i-=2) {
+    let num = Number(card[i]) * 2;
+    let numStr = num.toString();
+    let numSum = 0;
+    for (let j = 0 ; j < numStr.length; j++){
+      numSum = numSum + Number(numStr[j]);
+    }
+    sumOdd = numSum + sumOdd;
+    console.log(sumOdd);
+  }
+
+  for(let k = card.length-1; k >= 0; k-=2){
+    sumEven = sumEven + Number(card[k])
+  }
+
+  console.log(sumEven);
+
+  if (card.length == 15 && (card[0] == 3 &&(card[1] == 7 || card[1] == 4)) && (sumOdd + sumEven) % 10 == 0){
+    document.getElementById("credit-output").innerHTML = "<img src ='./images/amex.png'/>";
+  }
+  else if ((card.length == 13 || card.length == 16) && card[0] == 4 && (sumOdd + sumEven) % 10 == 0){
+    document.getElementById("credit-output").innerHTML = "<img src ='./images/visa.png'/>";
+  }
+  else if (card.length == 16 && (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 4 || card[1] == 5)) && (sumOdd + sumEven) % 10 == 0){
+    document.getElementById("credit-output").innerHTML = "<img src ='./images/mastercard.png'/>";
+  }
+  else {
+    document.getElementById("credit-output").innerHTML = "Invalid."
+  }
+
+  card=Number(card);
+} else {
+  document.getElementById("credit-output").innerHTML = "";
+}
+
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -297,17 +321,17 @@ function hurricane() {
   windspeed = Number(prompt("Enter Hurricane Windspeed"));
   if (windspeed>=0 && windspeed<=38){
     document.getElementById("hurricane-output").innerHTML = ("The skies are calm...")
-  } else if (windspeed>=39 && windspeed<=73){
+  } else if (windspeed>=39 && windspeed<=73) {
     document.getElementById("hurricane-output").innerHTML = ("Tropical Storm.")
-  } else if (windspeed>=74 && windspeed<=95){
+  } else if (windspeed>=74 && windspeed<=95) {
     document.getElementById("hurricane-output").innerHTML = ("Category 1 Hurricane.")
-  } else if (windspeed>=96 && windspeed<=110){
+  } else if (windspeed>=96 && windspeed<=110) {
     document.getElementById("hurricane-output").innerHTML = ("Category 2 Hurricane.")
-  } else if (windspeed>=111 && windspeed<=129){
+  } else if (windspeed>=111 && windspeed<=129) {
     document.getElementById("hurricane-output").innerHTML = ("Category 3 Hurricane.")
-  } else if (windspeed>=130 && windspeed<=156){
+  } else if (windspeed>=130 && windspeed<=156) {
     document.getElementById("hurricane-output").innerHTML = ("Category 4 Hurricane.")
-  } else if (windspeed>=157){
+  } else if (windspeed>=157) {
     document.getElementById("hurricane-output").innerHTML = ("Category 5 Hurricane.")
   } else {
     Number(prompt("Enter Hurricane Windspeed"));
@@ -355,6 +379,24 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+
+  let i = 1;
+	while (i <= 6) {
+		let inputScore = Number(prompt("Enter your score"));
+		if (inputScore >= 1 && inputScore <= 10 && Number.isInteger(inputScore)){
+			scores.push(inputScore);
+		i++;
+		}
+	}
+	scores.sort (function(a,b){return a-b;})
+	let max = scores[5];
+	let min = scores[0];
+	let revisedScores = [];
+	for(let j = 1; j < 5; j++){
+		revisedScores.push(scores[j]);
+	}
+	let averageScore=((revisedScores[0] + revisedScores[1] + revisedScores[2] + revisedScores[3])/4).toFixed(2);
+	document.getElementById("gymnastics-output").innerHTML = "Discarded: " + min + ", " + max + "</br>Score: " + averageScore;
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
@@ -407,6 +449,65 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+
+  testscore = prompt('Please enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.');
+    while (testscore) {
+      testscore = parseFloat(testscore);
+
+  if (testscore == -1) {
+    testscore = false;
+    break;
+  }
+  else if(testscore <= 100.00 && 0.0 <= testscore)
+  {
+    tests += 1;
+    testTotal += testscore;
+  }
+  else {
+  }
+    testscore = prompt('Please enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.')
+  }
+    quizscore = prompt('Please enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.');
+  while (quizscore) {
+    quizscore = parseFloat(quizscore);
+
+  if (quizscore == -1) {
+    quizscore = false;
+    break;
+  }
+  else if (quizscore <= 100.00 && 0.0 <= quizscore)
+  {
+    quizzes += 1;
+    quizTotal += quizscore;
+  }
+  else {
+  }
+   quizscore = prompt('Please enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.')
+  }
+   homeworkscore = prompt('Please enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.');
+  while (homeworkscore) {
+    homeworkscore = parseFloat(homeworkscore);
+
+  if (homeworkscore == -1) {
+    homeworkscore = false;
+    break;
+  }
+  else if (homeworkscore <= 100.00 && 0.0 <= homeworkscore)
+  {
+    homeworks += 1;
+    homeworkTotal += homeworkscore;
+  }
+  else {
+  }
+    homeworkscore = prompt('Please enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.')
+  }
+
+testAverage = testTotal/tests;
+quizAverage = quizTotal/quizzes;
+homeworkAverage = homeworkTotal/homeworks;
+totalAverage = (testAverage * 0.6) + (quizAverage * 0.3) + (homeworkAverage * 0.1);
+
+document.getElementById("report-card-output").innerHTML = "Tests: " + testAverage.toFixed(2) + "</br>Quizzes: " + quizAverage.toFixed(2) + "</br>Homework: " + homeworkAverage.toFixed(2) + "</br>Grade: " + totalAverage.toFixed(2);
 
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
